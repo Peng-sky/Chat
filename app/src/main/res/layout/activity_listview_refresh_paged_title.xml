@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/activityContainerStyle">
+
+	<RelativeLayout style="@style/titleBackGroundStyle" >
+
+		<ImageView style="@style/titleBackStyle" />
+
+		<TextView
+			style="@style/titleTextStyle" />
+
+		<TextView
+			style="@style/TitleRightBtnNoBackgroundStyle"
+			android:text="" />
+	</RelativeLayout>
+
+	<View style="@style/LineStyle" />
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<com.dq.itopic.views.PagedListView
+			android:id="@+id/paged_listview"
+			style="@style/ListViewStyle" />
+	</FrameLayout>
+
+</LinearLayout>

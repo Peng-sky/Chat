@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_color">#111111</color>
+    <color name="black_black">#000</color>
+    <color name="black_gray">#C4C4C4</color>
+    <color name="black_white">#F4F4F4</color>
+    <color name="blue_color">#3399ff</color>
+    <color name="blue_dark_color">#5E8DF9</color>
+    <color name="blue_dark_press_color">#003399</color>
+    <color name="blue_light_color">#419DEA</color>
+    <color name="btn_send_textcolor">@color/white</color>
+    <color name="divider_color">#353431</color>
+    <color name="gray_color">#191919</color>
+    <color name="green_color">#1CC4AD</color>
+    <color name="green_press_color">#159987</color>
+    <color name="input_bg">#1D1D1C</color>
+    <color name="input_extend">#1F1F1F</color>
+    <color name="navigation_color">#111111</color>
+    <color name="orange_color">#FC6F1D</color>
+    <color name="orange_press_color">#c25229</color>
+    <color name="rc_voip_background_color">#141C24</color>
+    <color name="red_color">#FE6766</color>
+    <color name="red_press_color">#E64C64</color>
+    <color name="tag_bg">#3A3A44</color>
+    <color name="text_black_color">#C4C4C4</color>
+    <color name="text_gray_color">#919191</color>
+    <color name="text_gray_dark_color">#F4F4F4</color>
+    <color name="toolbar_btn_nomal">#1F1F1F</color>
+    <color name="toolbar_btn_select">#3A3A44</color>
+    <color name="transparent">#00000000</color>
+    <color name="user_bg">#161923</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_color">#191919</color>
+    <color name="white_press_color">#D9D9D9</color>
+    <drawable name="gray_rect">#2C2C2C</drawable>
+    <drawable name="gray_rect_press">#D9D9D9</drawable>
+    <drawable name="personal_tab_press">#33B5E5</drawable>
+    <drawable name="white_drawable">#191919</drawable>
+    <drawable name="white_press_drawable">#111111</drawable>
+    <style name="Theme.AppCompat.DayNight" parent="Theme.AppCompat"/>
+    <style name="Theme.AppCompat.DayNight.DarkActionBar" parent="Theme.AppCompat"/>
+    <style name="Theme.AppCompat.DayNight.Dialog" parent="Theme.AppCompat.Dialog"/>
+    <style name="Theme.AppCompat.DayNight.Dialog.Alert" parent="Theme.AppCompat.Dialog.Alert"/>
+    <style name="Theme.AppCompat.DayNight.Dialog.MinWidth" parent="Theme.AppCompat.Dialog.MinWidth"/>
+    <style name="Theme.AppCompat.DayNight.DialogWhenLarge" parent="Theme.AppCompat.DialogWhenLarge"/>
+    <style name="Theme.AppCompat.DayNight.NoActionBar" parent="Theme.AppCompat.NoActionBar"/>
+    <style name="Theme.MaterialComponents.DayNight" parent="Theme.MaterialComponents"/>
+    <style name="Theme.MaterialComponents.DayNight.BottomSheetDialog" parent="Theme.MaterialComponents.BottomSheetDialog"/>
+    <style name="Theme.MaterialComponents.DayNight.Bridge" parent="Theme.MaterialComponents.Bridge"/>
+    <style name="Theme.MaterialComponents.DayNight.DarkActionBar" parent="Theme.MaterialComponents"/>
+    <style name="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge" parent="Theme.MaterialComponents.Bridge"/>
+    <style name="Theme.MaterialComponents.DayNight.Dialog" parent="Theme.MaterialComponents.Dialog"/>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.Alert" parent="Theme.MaterialComponents.Dialog.Alert"/>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.Alert.Bridge" parent="Theme.MaterialComponents.Dialog.Alert.Bridge"/>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.Bridge" parent="Theme.MaterialComponents.Dialog.Bridge"/>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.FixedSize" parent="Theme.MaterialComponents.Dialog.FixedSize"/>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.FixedSize.Bridge" parent="Theme.MaterialComponents.Dialog.FixedSize.Bridge"/>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.MinWidth" parent="Theme.MaterialComponents.Dialog.MinWidth"/>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.MinWidth.Bridge" parent="Theme.MaterialComponents.Dialog.MinWidth.Bridge"/>
+    <style name="Theme.MaterialComponents.DayNight.DialogWhenLarge" parent="Theme.MaterialComponents.DialogWhenLarge"/>
+    <style name="Theme.MaterialComponents.DayNight.NoActionBar" parent="Theme.MaterialComponents.NoActionBar"/>
+    <style name="Theme.MaterialComponents.DayNight.NoActionBar.Bridge" parent="Theme.MaterialComponents.NoActionBar.Bridge"/>
+    <style name="ThemeOverlay.AppCompat.DayNight" parent="ThemeOverlay.AppCompat.Dark"/>
+    <style name="ThemeOverlay.MaterialComponents.DayNight.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog"/>
+    <style name="Widget.MaterialComponents.ActionBar.PrimarySurface" parent="Widget.MaterialComponents.ActionBar.Surface"/>
+    <style name="Widget.MaterialComponents.AppBarLayout.PrimarySurface" parent="Widget.MaterialComponents.AppBarLayout.Surface"/>
+    <style name="Widget.MaterialComponents.BottomAppBar.PrimarySurface" parent="Widget.MaterialComponents.BottomAppBar"/>
+    <style name="Widget.MaterialComponents.BottomNavigationView.PrimarySurface" parent="Widget.MaterialComponents.BottomNavigationView"/>
+    <style name="Widget.MaterialComponents.TabLayout.PrimarySurface" parent="Widget.MaterialComponents.TabLayout"/>
+    <style name="Widget.MaterialComponents.Toolbar.PrimarySurface" parent="Widget.MaterialComponents.Toolbar.Surface"/>
+</resources>

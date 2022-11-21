@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dq.itopic"
+    android:versionCode="40"
+    android:versionName="11.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="29" />
+
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 读取相册 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- 不锁屏，视频通话用到 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- 浮动通知权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="getui.permission.GetuiService.com.dq.itopic" />
+
+    <permission
+        android:name="getui.permission.GetuiService.com.dq.itopic"
+        android:protectionLevel="normal" />
+    <!-- 检查网络状态 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> <!-- 适配Android R包可见性 开始 -->
+    <queries package="com.dq.itopic" >
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+        <intent>
+            <action android:name="android.media.action.ACTION_VIDEO_CAPTURE" />
+        </intent>
+    </queries>
+
+    <permission
+        android:name="com.dq.itopic.permission.PROCESS_PUSH_MSG"
+        android:protectionLevel="signatureOrSystem" /> <!-- PUSH_PROVIDER and PUSH_WRITE_PROVIDER are both provider registered permissions for the notification switch. -->
+    <!-- The SDK's notification bar switch, EMUI 9.x becomes write to the local sp, sharing the file through the provider to the push-rom, which reads the sp file to get the status of the notification bar switch. -->
+    <permission
+        android:name="com.dq.itopic.permission.PUSH_PROVIDER"
+        android:protectionLevel="signatureOrSystem" />
+    <permission
+        android:name="com.dq.itopic.permission.PUSH_WRITE_PROVIDER"
+        android:protectionLevel="signatureOrSystem" />
+
+    <uses-permission android:name="com.dq.itopic.permission.PROCESS_PUSH_MSG" />
+    <uses-permission android:name="com.dq.itopic.permission.PUSH_PROVIDER" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- 如果是安卓8.0，应用编译配置的targetSdkVersion>=26，请务必添加以下权限 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- 应用市场9.0版本必须使用该权限获取用户的服务地 -->
+    <uses-permission android:name="com.huawei.appmarket.service.commondata.permission.GET_COMMON_DATA" />
+
+    <application
+        android:name="com.dq.itopic.manager.ITopicApplication"
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true" >
+        <activity
+            android:name="com.dq.itopic.activity.login.WelcomeActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dq.itopic.activity.common.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" >
+        </activity>
+        <activity
+            android:name="com.dq.itopic.activity.chat.call.SingleCallActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.chat.search.SearchTagActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.chat.search.UserListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.chat.ChatActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.user.PersonalHomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.mine.setting.BlacklistActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.user.WarningReportActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name="com.dq.itopic.activity.common.WebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.login.UserFindPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.login.UserRegInfoPersonalActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name="com.dq.itopic.activity.mine.edit.EditTextActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.mine.edit.MyProfileEditActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.mine.setting.MineSystemPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.login.UserOpinionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.mine.setting.AboutUsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.mine.setting.MineSystemActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.login.UserLoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.dq.itopic.activity.login.UserRegMobileActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <!-- Umeng Analytics end -->
+
+
+        <!-- 个推SDK 开始 -->
+        <meta-data
+            android:name="PUSH_APPID"
+            android:value="JjRS35nTSP9k7ZSBKt8DM6" />
+        <meta-data
+            android:name="PUSH_APPKEY"
+            android:value="AQngfBxi8pATf95ENg2Kj9" />
+        <meta-data
+            android:name="PUSH_APPSECRET"
+            android:value="G6gnMrlBs06cBY9lqyL5V" />
+
+        <service
+            android:name="com.igexin.sdk.PushService"
+            android:exported="false"
+            android:label="NotificationCenter"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":pushservice" />
+
+        <receiver android:name="com.igexin.sdk.PushReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <!-- 以下三项为可选的 action 声明，有助于提高 service 存活率 -->
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.igexin.sdk.PushActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:process=":pushservice"
+            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.igexin.sdk.GActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:process=":pushservice"
+            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <!-- 用户自定义服务继承自GTIntentService,作为SDK与APP桥梁服务,用来接收各种消息和命令回复 -->
+        <service
+            android:name="com.dq.itopic.tools.service.GetuiIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <!-- 用户自定义服务名 -->
+        <service
+            android:name="com.dq.itopic.tools.service.GetuiPushService"
+            android:exported="true"
+            android:label="PushService"
+            android:process=":pushservice" >
+        </service>
+        <!-- 个推SDK 结束 -->
+
+
+        <!-- 华为推送SDK 开始 -->
+        <service
+            android:name="com.dq.itopic.tools.service.ITopicHWPushService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- 用于HMSSDK引导升级HMS APK，提供给系统安装器读取升级文件 -->
+        <provider
+            android:name="com.huawei.hms.update.provider.UpdateProvider"
+            android:authorities="com.dq.itopic.hms.update.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+        </provider>
+
+        <!-- 如果应用需要在非华为设备上使用华为推送，仅需要声明HmsMsgService -->
+        <service
+            android:name="com.huawei.hms.support.api.push.service.HmsMsgService"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":pushservice" >
+            <intent-filter>
+                <action android:name="com.huawei.push.msg.NOTIFY_MSG" />
+                <action android:name="com.huawei.push.msg.PASSBY_MSG" />
+            </intent-filter>
+        </service>
+        <!-- 华为推送SDK 结束 -->
+
+
+        <!-- 重点关注！！！！！！！ -->
+        <!-- 如果不需要使用窗口模式，不要使用authsdk_activity_dialog主题，会出现异常动画 -->
+        <!--
+        如果需要使用authsdk_activity_dialog主题，则screenOrientation一定不能指定明确的方向，
+        比如portrait、sensorPortrait，在8.0的系统上不允许窗口模式指定orientation，会发生crash，需要指定为behind，
+        然后在授权页的前一个页面指定具体的orientation
+        -->
+        <activity
+            android:name="com.mobile.auth.gatewayauth.LoginAuthActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="behind"
+            android:theme="@style/authsdk_activity_dialog" />
+        <activity
+            android:name="com.mobile.auth.gatewayauth.activity.AuthWebVeiwActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="behind" />
+        <activity
+            android:name="com.cmic.sso.sdk.activity.LoginAuthActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="behind"
+            android:theme="@style/authsdk_activity_dialog" />
+        <activity
+            android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity"
+            android:exported="false"
+            android:label=""
+            android:theme="@style/EasyPermissions.Transparent" />
+        <activity
+            android:name="cc.shinichi.library.view.ImagePreviewActivity"
+            android:theme="@style/Theme.ImagePreview" />
+
+        <meta-data
+            android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule"
+            android:value="GlideModule" />
+
+        <provider
+            android:name="com.luck.picture.lib.PictureFileProvider"
+            android:authorities="com.dq.itopic.provider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name="com.luck.picture.lib.PictureSelectorActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.luck.picture.lib.PictureSelectorWeChatStyleActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.luck.picture.lib.PictureSelectorCameraEmptyActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/Picture.Theme.Translucent" />
+        <activity
+            android:name="com.luck.picture.lib.PictureCustomCameraActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.luck.picture.lib.PicturePreviewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.luck.picture.lib.PictureSelectorPreviewWeChatStyleActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.luck.picture.lib.PictureVideoPlayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name="com.luck.picture.lib.PictureExternalPreviewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.luck.picture.lib.PicturePlayAudioActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:theme="@style/Base.Theme.NoActionBar" />
+        <activity
+            android:name="com.yalantis.ucrop.PictureMultiCuttingActivity"
+            android:theme="@style/Base.Theme.NoActionBar" />
+
+        <receiver
+            android:name="com.huawei.hms.support.api.push.PushMsgReceiver"
+            android:directBootAware="true"
+            android:permission="com.dq.itopic.permission.PROCESS_PUSH_MSG" >
+            <intent-filter>
+
+                <!-- Mandatory, be used to receive notification bar message click event. -->
+                <action android:name="com.huawei.intent.action.PUSH_DELAY_NOTIFY" />
+                <!-- Optional, compatible with old huawei phones. -->
+                <action android:name="com.huawei.intent.action.PUSH" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.huawei.hms.support.api.push.PushReceiver"
+            android:directBootAware="true"
+            android:permission="com.dq.itopic.permission.PROCESS_PUSH_MSG" >
+            <intent-filter>
+
+                <!-- Mandatory, be used to receive tokens. -->
+                <action android:name="com.huawei.android.push.intent.REGISTRATION" />
+                <!-- Mandatory, be used to receive messages. -->
+                <action android:name="com.huawei.android.push.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="com.huawei.hms.support.api.push.PushProvider"
+            android:authorities="com.dq.itopic.huawei.push.provider"
+            android:exported="true"
+            android:permission="com.dq.itopic.permission.PUSH_PROVIDER"
+            android:readPermission="com.dq.itopic.permission.PUSH_PROVIDER"
+            android:writePermission="com.dq.itopic.permission.PUSH_WRITE_PROVIDER" />
+
+        <meta-data
+            android:name="com.huawei.hms.client.service.name:push"
+            android:value="push:5.0.4.302" />
+        <meta-data
+            android:name="com.huawei.hms.min_api_level:push:push"
+            android:value="1" />
+
+        <provider
+            android:name="com.huawei.hms.aaid.InitProvider"
+            android:authorities="com.dq.itopic.aaidinitprovider"
+            android:exported="false"
+            android:initOrder="500" />
+
+        <meta-data
+            android:name="com.huawei.hms.client.service.name:opendevice"
+            android:value="opendevice:5.0.4.300" />
+        <meta-data
+            android:name="com.huawei.hms.min_api_level:opendevice:push"
+            android:value="1" />
+        <!--
+        为后续统计第三方app集成了哪些Kit，因此需要Kit在自己的AndroidManifest.xml文件中定义业务标签元数据，
+        流水线打包时会替换成HMSVER对应的版本号，不要手动修改
+        -->
+        <meta-data
+            android:name="com.huawei.hms.client.service.name:base"
+            android:value="base:5.0.4.301" /> <!-- SDK依赖的HMSCore的最低api level元数据 -->
+        <meta-data
+            android:name="com.huawei.hms.min_api_level:base:hmscore"
+            android:value="1" /> <!-- 用于判断是否集成了本lib -->
+        <meta-data
+            android:name="availableLoaded"
+            android:value="yes" />
+
+        <activity
+            android:name="com.huawei.hms.activity.BridgeActivity"
+            android:configChanges="orientation|locale|layoutDirection|fontScale|screenSize|smallestScreenSize|screenLayout|uiMode"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent" >
+            <meta-data
+                android:name="hwc-theme"
+                android:value="androidhwext:style/Theme.Emui.Translucent" />
+        </activity>
+        <activity
+            android:name="com.huawei.hms.activity.EnableServiceActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|screenLayout"
+            android:exported="false" >
+        </activity>
+
+        <provider
+            android:name="com.huawei.agconnect.core.provider.AGConnectInitializeProvider"
+            android:authorities="com.dq.itopic.AGCInitializeProvider"
+            android:exported="false" />
+
+        <service
+            android:name="com.huawei.agconnect.core.ServiceDiscovery"
+            android:exported="false" />
+
+        <activity
+            android:name="com.huawei.updatesdk.service.otaupdate.AppUpdateActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <meta-data
+                android:name="hwc-theme"
+                android:value="androidhwext:style/Theme.Emui.Translucent.NoTitleBar" />
+        </activity>
+        <activity
+            android:name="com.huawei.updatesdk.support.pm.PackageInstallerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <meta-data
+                android:name="hwc-theme"
+                android:value="androidhwext:style/Theme.Emui.Translucent" />
+        </activity>
+
+        <provider
+            android:name="com.huawei.updatesdk.fileprovider.UpdateSdkFileProvider"
+            android:authorities="com.dq.itopic.updateSdk.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+        </provider>
+    </application>
+
+</manifest>
